@@ -1,0 +1,92 @@
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="drawer-sidenav" mode="side">
+
+    <div class="div-logo">
+      <img class="img-logo"
+           [src]="appConfig.getAppLogo()"/>
+    </div>
+    <mat-card class="card-menu-button">
+      <mat-card-content>
+        <p>{{ appConfig.getAppOwner() }}</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-menu-button" *ngIf="isUserAdmin()" (click)="onDashboard()">
+      <mat-card-content>
+        <p>Dashboard</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-menu-button" (click)="onLogOut()">
+      <mat-card-content>
+        <p>Logout</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-drawer>
+
+  <div class="drawer-sidenav-content">
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{ appConfig.getAppName() }}</span>
+      <span class="example-spacer"></span>
+      <app-cart-button></app-cart-button>
+    </mat-toolbar>
+
+
+    <img class="img-banner"
+         src="https://lfze.hu/data/LFZE.HU/doktori_iskola/kepek-di/konyvek-06_focuspoint_825x450.png"/>
+
+    <mat-card class="card-about-us">
+      <mat-card-title class="title-about-us">Welcome to {{ appConfig.getAppName() }} </mat-card-title>
+      <mat-card-content>
+
+        <div class="div-text">
+          <p>
+            At ,{{ appConfig.getAppName() }} we celebrate the joy of reading by offering a unique and welcoming space for book enthusiasts.
+            Our mission is to provide a diverse range of books and a community-centric environment where every reader can find something they love.
+            <br><br>
+            Who Are We?
+            <br><br>
+            {{appConfig.getAppName()}} is a business that has been serving local and distant readers for over 5 years.
+            Our passion for books is evident not only in our extensive selection but also in our personalized customer service.
+            Every member of our team is an experienced and enthusiastic book lover, eager to help you find the perfect read.
+
+          </p>
+          <img class="img-section"
+               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTES94pYH2kxMNi-7_Sfty6j9hyboUHA7gTHQ&s"/>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card-about-us">
+      <mat-card-title class="title-about-us">What Do We Offer?</mat-card-title>
+      <mat-card-content>
+        <div class="div-text">
+          <img class="img-section" style="margin-left: 0px !important; margin-right: 16px"
+               src="https://i.pinimg.com/236x/7b/a4/be/7ba4bec9dd423049f49f4a1eaf46e185.jpg"/>
+
+          <p>
+            Wide Selection of Books: Whether you're looking for fiction, non-fiction, young adult literature, or professional
+            literature, you'll find something to suit your taste.
+            <br><br>
+            Special Offers: We regularly feature promotions and exclusive editions for our customers.
+            <br><br>
+            Community Events: We host author readings, book signings, and literary discussions to bring our community together.
+            <br><br>
+            Personalized Recommendations: Our knowledgeable staff is always ready to provide tailored suggestions based on your interests.
+            <br><br>
+            Come visit us at {{appConfig.getAppName()}} and discover a world of stories waiting to be explored. Whether you're a lifelong reader or
+            just starting your literary journey, we have something for everyone. Join our community of book enthusiasts and experience the
+            joy of reading with us.
+
+          </p>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+    <app-list-products [isAdmin]="false"></app-list-products>
+  </div>
+
+</mat-drawer-container>
+
