@@ -15,7 +15,6 @@ import java.util.Optional;
 
 @Service
 public class AuthServiceImpl implements AuthService {
-
     private final CustomerService customerService;
 
     public AuthServiceImpl(CustomerService customerService) {
@@ -42,15 +41,11 @@ public class AuthServiceImpl implements AuthService {
         customerOptional.orElseThrow(() -> new ResourceNotFoundException("Nu exista cont cu aceasta adresa de email "));
 
 
-
         boolean isMatch = BCrypt.checkpw(loginDto.getPassword(), customerOptional.get().getPassword());
 
         if (!isMatch) {
             throw new BadRequestException("Parola este incorecta");
         }
-
-
-
         return customerOptional.get();
     }
 

@@ -1,6 +1,7 @@
 <mat-drawer-container class="drawer-container" autosize>
   <mat-drawer #drawer class="drawer-sidenav" mode="side">
 
+
     <div class="div-logo">
       <img class="img-logo"
            [src]="appConfig.getAppLogo()"/>
@@ -23,7 +24,7 @@
   </mat-drawer>
 
   <div class="drawer-sidenav-content">
-    <mat-toolbar color="primary">
+    <mat-toolbar class="toolbar-background">
       <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -35,6 +36,7 @@
 
     <img class="img-banner"
          src="https://lfze.hu/data/LFZE.HU/doktori_iskola/kepek-di/konyvek-06_focuspoint_825x450.png"/>
+
 
     <mat-card class="card-about-us">
       <mat-card-title class="title-about-us">Welcome to {{ appConfig.getAppName() }} </mat-card-title>
@@ -83,6 +85,7 @@
         </div>
 
       </mat-card-content>
+
     </mat-card>
 
     <app-list-products [isAdmin]="false"></app-list-products>

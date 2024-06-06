@@ -22,7 +22,9 @@
 }
 .btn-buy{
   margin-left: auto;
+  background: darkorange;
 }
+
 .div-admin-controls{
   display: grid;
 }
@@ -42,4 +44,9 @@
 }
 .p-price{
   font-weight: bold;
+}
+.btn-action{
+  background: darkorange!important;
+  background-color: darkorange;
+  color:white;
 }
